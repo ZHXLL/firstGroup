@@ -2,39 +2,41 @@
 ## 如何阻止事件冒泡和默认事件
 - stoppropagation / preventdefault
 
-14.添加 插入 替换 删除到某个接点的方法
-obj.appendChidl()
-obj.innersetBefore
-obj.replaceChild
-obj.removeChild
+## 添加 插入 替换 删除到某个接点的方法
+- obj.appendChidl()
+- obj.innersetBefore
+- obj.replaceChild
+- obj.removeChild
 
-15.解释jsonp的原理，以及为什么不是真正的ajax
-动态创建script标签，回调函数
-Ajax是页面无刷新请求数据操作
+## 解释jsonp的原理，以及为什么不是真正的ajax
+- 动态创建script标签，回调函数
+- Ajax是页面无刷新请求数据操作
 
-16.javascript的本地对象，内置对象和宿主对象
-本地对象为array obj regexp等可以new实例化
-内置对象为gload Math 等不可以实例化的
-宿主为浏览器自带的document,window 等
+## javascript的本地对象，内置对象和宿主对象
+- 本地对象为array obj regexp等可以new实例化
+- 内置对象为gload Math 等不可以实例化的
+- 宿主为浏览器自带的document,window 等
 
-17.document load 和document ready的区别
-页面加载完成有两种事件：
-一.是ready，表示文档结构已经加载完成（不包含图片等非文字媒体文件）。
-二.是onload，指示页面包含图片等文件在内的所有元素都加载完成。
+## document load 和document ready的区别
+- 页面加载完成有两种事件：
+ - 一.是ready，表示文档结构已经加载完成（不包含图片等非文字媒体文件）。
+ - 二.是onload，指示页面包含图片等文件在内的所有元素都加载完成。
 
-18.”==”和“===”的不同
-前者会自动转换类型
-后者不会
+## ”==”和“===”的不同
+- 前者会自动转换类型
+- 后者不会
 
-19.javascript的同源策略
-同源策略是一个很重要的安全理念，它在保证数据的安全性方面有着重要的意义，
-一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是协议、域名和端口号的组合
+## javascript的同源策略
+- 同源策略是一个很重要的安全理念，它在保证数据的安全性方面有着重要的意义，
+- 一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是协议、域名和端口号的组合
 
-20.最快捷的数组求最大值
+## 最快捷的数组求最大值
+```
 var arr = [ 1,5,1,7,5,9];
 Math.max(...arr)  // 9 
+```
 21.更短的数组去重写法
-[...new Set([2,"12",2,12,1,2,1,6,12,13,6])]
+- [...new Set([2,"12",2,12,1,2,1,6,12,13,6])]
 
 // [2, "12", 12, 1, 6, 13]
 22.排序算法
