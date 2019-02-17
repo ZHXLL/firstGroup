@@ -150,3 +150,41 @@ console.log(examplearr);
 
 - 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。 
 （关于闭包，详细了解请看JavaScript之作用域与闭包详解）
+## 请解释JSONP的工作原理，以及它为什么不是真正的AJAX。
+- JSONP (JSON with Padding)是一个简单高效的跨域方式，HTML中的script标签可以加载并执行其他域的javascript，于是我们可以通过script标记来动态加载其他域的资源。例如我要从域A的页面pageA加载域B的数据，那么在域B的页面pageB中我以JavaScript的形式声明pageA需要的数据，然后在 pageA中用script标签把pageB加载进来，那么pageB中的脚本就会得以执行。JSONP在此基础上加入了回调函数，pageB加载完之后会执行pageA中定义的函数，所需要的数据会以参数的形式传递给该函数。JSONP易于实现，但是也会存在一些安全隐患，如果第三方的脚本随意地执行，那么它就可以篡改页面内容，截获敏感数据。但是在受信任的双方传递数据，JSONP是非常合适的选择。
+
+- AJAX是不跨域的，而JSONP是一个是跨域的，还有就是二者接收参数形式不一样！
+
+## 请解释变量声明提升。
+- 在函数执行时，把变量的声明提升到了函数顶部，而其值定义依然在原来位置。
+
+## 28.如何从浏览器的URL中获取查询字符串参数。
+- 以下函数把获取一个key的参数。
+```
+  function parseQueryString ( name ){
+      name = name.replace(/[\[]/,"\\\[");
+      var regexS = "[\\?&]"+name+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( window.location.href );
+ 
+      if(results == null) {
+          return "";
+      } else {
+     return results[1];
+     }
+ }
+ ```
+## arguments是什么？
+- arguments虽然有一些数组的性质，但其并非真正的数组，只是一个类数组对象。
+- 其并没有数组的很多方法，不能像真正的数组那样调用.jion(),.concat(),.pop()等方法。
+
+## 什么是”use strict”;?使用它的好处和坏处分别是什么？
+- 在代码中出现表达式-“use strict”; 意味着代码按照严格模式解析，这种模式使得Javascript在更严格的条件下运行。
+
+- 好处：
+ - 1.消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;
+ - 2.消除代码运行的一些不安全之处，保证代码运行的安全；
+ - 3.提高编译器效率，增加运行速度；
+
+- 坏处：
+ - 1.同样的代码，在”严格模式”中，可能会有不一样的运行结果；一些在”正常模式”下可以运行的语句，在”严格模式”下将不能运行。
